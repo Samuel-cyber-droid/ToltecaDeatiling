@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOLTECA DETAILING - Detallado Automotriz Profesional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Nueva fuente -->
+    <link href="video.mp4" rel="stylesheet">
+    <style>
+        /* Estilos Generales y Reset */
+        :root {
+            --primary-color: #ff4081; /* Rosa vibrante */
+            --secondary-color: #ffeb3b; /* Amarillo */
+            --dark-bg: #263238; /* Fondo oscuro */
+            --light-text: #ffffff; /* Texto claro */
+            --gray-text: #b0bec5; /* Texto gris claro */
+            --accent-blue: #2196f3; /* Azul */
+            --accent-orange: #ff9800; /* Naranja para detalles */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Cambiado a Roboto */
+            line-height: 1.6;
+            color: var(--light-text);
+            background-color: #37474f; /* Fondo más claro */
+            overflow-x: hidden; /* Evita scroll horizontal */
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--accent-orange);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #f50057; /* Rosa más oscuro */
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #fdd835; /* Amarillo más oscuro */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Alinea el logo a la derecha */
+            width: 100%; /* Asegura que ocupe todo el ancho */
+        }
+
+        .logo img {
+            height: 100px; /* Aumenta la altura del logo */
+            margin-left: 15px; /* Espacio entre el texto y el logo */
+        }
+
+        .title {
+            flex-grow: 1; /* Permite que el título ocupe el espacio restante */
+            text-align: center; /* Centra el texto */
+        }
+
+        .title h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5em;
+            color: var(--accent-blue);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--light-text);
+            font-weight: bold;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-toggle {
+            display: none; /* Oculto por defecto en desktop */
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            background-size: cover;
+            filter: brightness(0.6);
+        }
+
+        #hero .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        #hero h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 4em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            color: var(--accent-blue);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        #hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: var(--gray-text);
+        }
+
+        #hero .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Sección de Ubicación */
+        #location {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #455a64; /* Gris oscuro */
+        }
+
+        #location h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+
+        #location p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            color: var(--gray-text);
+        }
+
+        .map-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .map-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Sections Generales */
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #2a2a2a;
+        }
+
+        section h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+
+        section p.section-description {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            color: var(--gray-text);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Section */
+        #services .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-card .icon {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+        }
+
+        .service-card h4 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--accent-blue);
+        }
+
+        .service-card p {
+            color: var(--gray-text);
+            font-size: 0.95em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: var(--gray-text);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        footer .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer .footer-links a {
+            color: var(--gray-text);
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Media Queries para Responsividad */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                width: 100%;
+                text-align: right; /* Alineación a la derecha */
+                margin-bottom: 15px;
+            }
+
+            .title {
+                width: 100%;
+                text-align: center; /* Centra el título */
+            }
+
+            .nav-toggle {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+
+            nav {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                background-color: #222;
+                border-radius: 5px;
+            }
+
+            nav.active {
+                max-height: 300px; /* Altura suficiente para mostrar el menú */
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 15px;
+            }
+
+            #hero h2 {
+                font-size: 2.5em;
+            }
+
+            #hero p {
+                font-size: 1em;
+            }
+
+            #hero .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            section h3 {
+                font-size: 2.2em;
+            }
+
+            #contact .contact-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #contact .contact-form,
+            #contact .contact-info-map {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 2em;
+            }
+
+            #hero h2 {
+                font-size: 2em;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Cabecera) -->
+    <header>
+        <div class="container">
+            <div class="title">
+                <h1>TOLTECA DETAILING</h1>
+            </div>
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo de Tolteca Detailing" style="height: 100px;"> <!-- Aumenta la altura del logo -->
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#gallery">Galería</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="#contact" class="btn btn-secondary">¡Agenda una Cita!</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section (Sección Principal de Impacto) -->
+        <section id="hero">
+            <video autoplay muted loop id="hero-video">
+                <source src="video.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+            <div class="hero-content">
+                <h2>Transforma tu Vehículo con el Detallado Profesional de Tolteca.</h2>
+                <p>Calidad artesanal que tu coche merece. ¡Brillo y Protección Garantizados!</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn">Ver Nuestros Servicios</a>
+                    <a href="#contact" class="btn btn-secondary">¡Agenda una Cita Ahora!</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Servicios -->
+        <section id="services">
+            <div class="container">
+                <h3>Nuestros Servicios de Detallado</h3>
+                <p class="section-description">Ofrecemos una gama completa de servicios para que tu coche luzca como nuevo, utilizando solo los mejores productos y técnicas.</p>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="icon">🧼</div>
+                        <h4>Detallado Exterior Premium</h4>
+                        <p>Lavado profundo, descontaminación de pintura, pulido y encerado para un brillo espejo.</p>
+                        <a href="#" class="btn btn-small">Más Info</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">✨</div>
+                        <h4>Limpieza Interior Profunda</h4>
+                        <p>Aspirado, limpieza de tapicería, acondicionamiento de plásticos y más.</p>
+                        <a href="#" class="btn btn-small">Más Info</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">🛡️</div>
+                        <h4>Protección de Pintura</h4>
+                        <p>Aplicación de ceras y selladores para una protección duradera.</p>
+                        <a href="#" class="btn btn-small">Más Info</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Ubicación -->
+        <section id="location">
+            <div class="container">
+                <h3>Ubicación</h3>
+                <p>Estamos ubicados en la Calle Ejemplo 123, Ciudad, Estado, CP 12345.</p>
+                <p>¡Visítanos y transforma el aspecto de tu vehículo!</p>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345095395!2d144.96305791531667!3d-37.81410797975127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f0f0f63%3A0x5045675218c5e30!2sCalle%20Ejemplo%20123%2C%20Melbourne%20VIC%2C%20Australia!5e0!3m2!1ses!2sus!4v1614079330325!5m2!1ses!2sus" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Tolteca Detailing. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#hero">Inicio</a>
+                    <a href="#services">Servicios</a>
+                    <a href="#gallery">Galería</a>
+                    <a href="#about">Sobre Nosotros</a>
+                    <a href="#contact">Contacto</a>
+                </div>
+                <div class="social-icons">
+                    <div class="icon">📱</div>
+                    <div class="icon">📧</div>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
